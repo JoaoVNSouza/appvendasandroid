@@ -1,9 +1,13 @@
 from kivy.app import App
 from kivy.lang import Builder
 import requests
+import os
+import certifi
 from telas import *
 from botoes import *
 from bannervenda import *
+
+os.environ['SSL_CERT_FILE'] = certifi.where()
 
 GUI = Builder.load_file("main.kv")  # Load the GUI from main.kv
 
