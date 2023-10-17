@@ -1,0 +1,1 @@
+Arquivo para armazenar o layout de todas as telas do sistema

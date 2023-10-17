@@ -1,0 +1,54 @@
+# Importar telas.
+#:include kv/homepage.kv
+#:include kv/ajustespage.kv
+#:include kv/adicionarvendaspage.kv
+#:include kv/adicionarvendedorpage.kv
+#:include kv/fotoperfilpage.kv
+#:include kv/listarvendedorespage.kv
+#:include kv/todasvendaspage.kv
+#:import utils kivy.utils
+
+FloatLayout:
+    # Fundo da tela.
+    canvas:
+        Color:
+            rgb: utils.get_color_from_hex("#001824")
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Definição padrão para todas as telas, ou seja, todas as telas tem isso por padrão.
+    Image:
+        pos_hint: {'right': 1, 'top': 0.9}
+        size_hint: 1, 0.2
+
+        source: 'icones/hash.png'
+        id: foto_perfil
+
+    # Gerenciador de telas.
+    ScreenManager:
+        pos_hint: {'right': 1, 'top': 0.7}
+        size_hint: 1, 0.7
+
+        id: screen_manager
+        HomePage:
+            id: homepage
+            name: "homepage"
+        AjustesPage:
+            id: ajustespage
+            name: "ajustespage"
+        AdicionarVendasPage:
+            id: adicionarvendaspage
+            name: "adicionarvendaspage"
+        AdicionarVendedorPage:
+            id: adicionarvendedorpage
+            name: "adicionarvendedorpage"
+        FotoPerfilPage:
+            id: fotoperfilpage
+            name: "fotoperfilpage"
+        ListarVendedoresPage:
+            id: listarvendedorespage
+            name: "listarvendedorespage"
+        TodasVendasPage:
+            id: todasvendaspage
+            name: "todasvendaspage"

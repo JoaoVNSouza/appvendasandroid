@@ -1,0 +1,67 @@
+<HomePage>:
+    FloatLayout:
+        # Fundo da tela.
+        canvas:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'icones/bg1.png'
+
+        # Label com fundo personalizado.
+        Label:
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: 'icones/botao_fino.png'
+
+            pos_hint: {'right': 0.85, 'top': 0.95}
+            size_hint: 0.7, 0.2
+
+            markup: True
+            text: "Total de Vendas: R$ 1,00"
+            id: label_total_vendas
+
+        # Lista de Vendas.
+        ScrollView:
+            pos_hint: {'right' : 1, 'top' : 0.75}
+            size_hint: 1, 0.73
+
+            GridLayout:
+                cols: 1
+                id: lista_vendas
+                spacing: 2, 2
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: '90dp'
+                row_force_default: True
+
+        # 3 botões na parte de baixo.
+        GridLayout:
+            rows: 1
+
+            pos_hint: {'right': 1, 'top': 0.12}
+            size_hint: 1, 0.12
+
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex('#006D7E')
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            # Mudar para tela de Adicionar Venda.
+            ImageButton:
+                source: 'icones/add.png'
+                on_release: app.mudar_tela('adicionarvendaspage')
+
+
+            # Mudar para tela de vendedores.
+            ImageButton:
+                source: 'icones/salesman.png'
+                on_release: app.mudar_tela('listarvendedorespage')
+
+            # Mudar para tela de ajustes.
+            ImageButton:
+                source: 'icones/settings.png'
+                on_release: app.mudar_tela('ajustespage')
